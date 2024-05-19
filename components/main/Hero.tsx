@@ -22,7 +22,7 @@ const Hero = () => {
 
         @media (max-width: 767px) {
           .videoStyles {
-            top: -430px;
+            top: -470px;
           }
         }
       `}</style>
