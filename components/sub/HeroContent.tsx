@@ -65,7 +65,7 @@ const Hero = () => {
             variants={slideInFromLeft(0.8)}
             className="text-lg text-gray-400 my-5 max-w[600px]"
           >
-            I'm a Full Stack Software Engineer with expertise in Django backend development and Next.Js for polished front end results. Check out my projects and skills.
+            I&apos;m a Full Stack Software Engineer with expertise in Django backend development and Next.Js for polished front end results. Check out my projects and skills.
           </motion.p>
           <motion.a
             variants={slideInFromLeft(1)}
