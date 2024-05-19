@@ -85,6 +85,11 @@ export const Skill_data = [
       src: "/linkedin.svg",
       url: "https://www.linkedin.com/in/ahmed-rafi-b40985233/",
     },
+    {
+      name: "Gmail",
+      src: "/gmail.svg",
+      url: "mailto:0423rafi@gmail.com",
+    },
   ];
   
   

@@ -1,7 +1,11 @@
 "use client"
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
+import { useInView } from 'react-intersection-observer';
+import { slideInFromRight } from '@/utils/motion'; // Adjust the path based on your project structure
+import { FaInstagram, FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
 
 const Contact = () => {
   const [form, setForm] = useState({
@@ -58,41 +62,87 @@ const Contact = () => {
       );
   };
 
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Trigger animation only once
+    threshold: 0.5, // Set the threshold to 0.5 (half of the component needs to be in view)
+  });
+
+  useEffect(() => {
+    if (inView) {
+      // Once the component is in view, start the animation
+      setLoading(false);
+    }
+  }, [inView]);
+
   return (
     <motion.div
+      ref={ref}
       initial="hidden"
-      animate="visible"
+      animate={inView ? "visible" : "hidden"} // Start animation when in view
+      variants={slideInFromRight(0)} // Apply slideInFromRight animation
       className="flex flex-col items-center justify-center px-20 mt-18 w-full z-[20]"
       id="contactme"
-      >
+    >
       <h1 className="text-[50px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-800 py-20">
         Contact me
-      </h1> 
+      </h1>
       <div className="max-w-md w-full bg-transparent shadow-md rounded-lg overflow-hidden border border-[#2A0E61]">
-  <form onSubmit={handleSubmit} className="p-6">
-    <div className="mb-6">
-      <label htmlFor="name" className="block text-white font-semibold text-lg mb-2">Name</label>
-      <input type="text" name="name" id="name" value={form.name} onChange={handleChange} className="appearance-none border rounded w-full py-2 px-3 text-white font-semibold leading-tight focus:outline-none bg-transparent focus:border-purple-900 focus:ring-purple-900" placeholder="Your Name" required />
-    </div>
-    <div className="mb-6">
-      <label htmlFor="email" className="block text-white font-semibold text-lg mb-2">Email</label>
-      <input type="email" name="email" id="email" value={form.email} onChange={handleChange} className="appearance-none border rounded w-full py-2 px-3 text-white font-semibold leading-tight focus:outline-none bg-transparent focus:border-purple-900 focus:ring-purple-900" placeholder="Your Email" required />
-    </div>
-    <div className="mb-6">
-      <label htmlFor="message" className="block text-white font-semibold text-lg mb-2">Message</label>
-      <textarea name="message" id="message" value={form.message} onChange={handleChange} className="appearance-none border rounded w-full py-2 px-3 text-white font-semibold leading-tight focus:outline-none bg-transparent focus:border-purple-900 focus:ring-purple-900" placeholder="Your Message" rows={4} required></textarea>
-    </div>
-    <button
-      type="submit"
-      className="py-2 px-4 button-primary text-center text-white cursor-pointer rounded-lg w-[180px] transition duration-300 ease-in-out"
-    >
-      {loading ? 'Sending...' : 'Send Message'}
-    </button>
-  </form>
-</div>
-
-
+        <form onSubmit={handleSubmit} className="p-6">
+          <div className="mb-6">
+            <label htmlFor="name" className="block text-white font-semibold text-lg mb-2">
+              Name
+            </label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              value={form.name}
+              onChange={handleChange}
+              className="appearance-none border rounded w-full py-2 px-3 text-white font-semibold leading-tight focus:outline-none bg-transparent focus:border-purple-900 focus:ring-purple-900"
+              placeholder="Your Name"
+              required
+            />
+          </div>
+          <div className="mb-6">
+            <label htmlFor="email" className="block text-white font-semibold text-lg mb-2">
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={form.email}
+              onChange={handleChange}
+              className="appearance-none border rounded w-full py-2 px-3 text-white font-semibold leading-tight focus:outline-none bg-transparent focus:border-purple-900 focus:ring-purple-900"
+              placeholder="Your Email"
+              required
+            />
+          </div>
+          <div className="mb-6">
+            <label htmlFor="message" className="block text-white font-semibold text-lg mb-2">
+              Message
+            </label>
+            <textarea
+              name="message"
+              id="message"
+              value={form.message}
+              onChange={handleChange}
+              className="appearance-none border rounded w-full py-2 px-3 text-white font-semibold leading-tight focus:outline-none bg-transparent focus:border-purple-900 focus:ring-purple-900"
+              placeholder="Your Message"
+              rows={4}
+              required
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            className="py-2 px-4 button-primary text-center text-white cursor-pointer rounded-lg w-[180px] transition duration-300 ease-in-out"
+          >
+            {loading ? 'Sending...' : 'Send Message'}
+          </button>
+        </form>
+      </div>
     </motion.div>
+    
   );
 };
 

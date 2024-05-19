@@ -11,6 +11,20 @@ export function slideInFromLeft(delay: number) {
       },
     };
   }
+  export function slideInFromBottom(delay: number) {
+    return {
+      hidden: { y: 100, opacity: 0 }, // Starts from below with opacity 0
+      visible: {
+        y: 0, // Moves to its original position
+        opacity: 1, // Becomes fully visible
+        transition: {
+          delay: delay,
+          duration: 0.5,
+        },
+      },
+    };
+  }
+  
   
   export function slideInFromRight(delay: number) {
     return {
