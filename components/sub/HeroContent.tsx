@@ -68,12 +68,12 @@ const Hero = () => {
             I&apos;m a Full Stack Software Engineer with expertise in Django backend development and Next.Js for polished front end results. Check out my projects and skills.
           </motion.p>
           <motion.a
-            variants={slideInFromLeft(1)}
-            className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
-            href="#skills"
-          >
-            Learn More!
-          </motion.a>
+  variants={slideInFromLeft(1)}
+  className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
+  href="#skills"
+>
+  Learn More!
+</motion.a>
         </div>
         <motion.div
           variants={slideInFromRight(0.8)}
