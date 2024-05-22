@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-
 import { motion } from "framer-motion";
 import { slideInFromTop } from "@/utils/motion";
 import Image from "next/image";
@@ -13,15 +12,9 @@ const Encryption = () => {
           variants={slideInFromTop}
           className="text-[40px] font-medium text-center text-gray-200"
         >
-          Performance
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-            {" "}
-            &{" "}
-          </span>
-          Security
+          Performance <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500"> &nbsp;</span> Security
         </motion.div>
       </div>
-
       <div className="flex flex-col items-center justify-center translate-y-[-50px] absolute z-[20] w-auto h-auto">
         <div className="flex flex-col items-center group cursor-pointer w-auto h-auto">
           <Image
@@ -39,7 +32,6 @@ const Encryption = () => {
             className=" z-10"
           />
         </div>
-
         <div className="Welcome-box px-[15px] py-[4px] z-[20] brder my-[20px] border-[#7042f88b] opacity-[0.9]">
           <h1 className="Welcome-text text-[12px]">Encryption</h1>
         </div>
@@ -49,16 +41,13 @@ const Encryption = () => {
           Secure your data with end-to-end encryption
         </div>
       </div>
-
       <div className="w-full flex items-start justify-center absolute">
-        <video
-          loop
-          muted
-          autoPlay
-          playsInline
-          preload="false"
-          className="w-full h-auto"
-          src="/encryption.webm/"
+        <Image
+          src="/encryption.gif"
+          alt="Encryption GIF"
+          width={800}
+          height={450}
+          className="w-full h-auto object-contain object-center"
         />
       </div>
     </div>

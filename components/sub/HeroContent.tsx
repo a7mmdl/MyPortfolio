@@ -55,7 +55,7 @@ const Hero = () => {
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
                     Ahmed
                   </span>
-                  {screenWidth && screenWidth > 768 && <span> Rafi</span>}
+                  {screenWidth && screenWidth > 768 &&  <span className="text-transparent bg-clip-text bg-gradient-to-l from-purple-500 to-cyan-500">  Rafi</span>}
                 </span>
               </span>
               <span style={{ fontSize: "40px" }}> Full Stack Developer </span>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import HeroContent from "../sub/HeroContent";
 
@@ -9,9 +9,12 @@ const Hero = () => {
         autoPlay
         muted
         loop
+        playsInline
         className="rotate-180 absolute top-[-300px] h-full w-full left-0 z-[1] object-cover videoStyles"
       >
         <source src="/blackhole.webm" type="video/webm" />
+        <source src="/blackhole.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
       </video>
       <HeroContent />
 
