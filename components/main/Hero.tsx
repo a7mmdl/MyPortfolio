@@ -3,21 +3,23 @@ import React, { useRef, useEffect } from "react";
 import HeroContent from "../sub/HeroContent";
 
 const Hero = () => {
-  const videoRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const videoElement = videoRef.current;
 
-    const handleEnded = () => {
-      videoElement.currentTime = 0;
-      videoElement.play();
-    };
+    if (videoElement) {
+      const handleEnded = () => {
+        videoElement.currentTime = 0;
+        videoElement.play();
+      };
 
-    videoElement.addEventListener("ended", handleEnded);
+      videoElement.addEventListener("ended", handleEnded);
 
-    return () => {
-      videoElement.removeEventListener("ended", handleEnded);
-    };
+      return () => {
+        videoElement.removeEventListener("ended", handleEnded);
+      };
+    }
   }, []);
 
   return (
