@@ -17,7 +17,7 @@ const Hero = () => {
 
       <style jsx>{`
         .videoStyles {
-          top: -300px; /* Adjust this value to move the video up or down on desktop */
+          top: -250px; /* Adjust this value to move the video up or down on desktop */
         }
 
         @media (max-width: 767px) {
