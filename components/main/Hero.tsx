@@ -9,7 +9,7 @@ const Hero = () => {
         autoPlay
         muted
         loop
-        className="rotate-180 absolute top-[-250px] h-full w-full left-0 z-[1] object-cover videoStyles"
+        className="rotate-180 absolute top-[-300px] h-full w-full left-0 z-[1] object-cover videoStyles"
       >
         <source src="/blackhole.webm" type="video/webm" />
       </video>
@@ -17,7 +17,7 @@ const Hero = () => {
 
       <style jsx>{`
         .videoStyles {
-          top: -150px; /* Adjust this value to move the video up or down on desktop */
+          top: -300px; /* Adjust this value to move the video up or down on desktop */
         }
 
         @media (max-width: 767px) {
