@@ -1,31 +1,11 @@
-"use client";
-import React, { useRef, useEffect } from "react";
+"use client"
+import React from "react";
 import HeroContent from "../sub/HeroContent";
 
 const Hero = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const videoElement = videoRef.current;
-
-    if (videoElement) {
-      const handleEnded = () => {
-        videoElement.currentTime = 0;
-        videoElement.play();
-      };
-
-      videoElement.addEventListener("ended", handleEnded);
-
-      return () => {
-        videoElement.removeEventListener("ended", handleEnded);
-      };
-    }
-  }, []);
-
   return (
     <div className="relative flex flex-col h-full w-full" id="about-me">
       <video
-        ref={videoRef}
         autoPlay
         muted
         loop
